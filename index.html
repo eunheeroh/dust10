@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <!-- 문서 인코딩 설정 -->
+    <meta charset="UTF-8">
+    <!-- 모바일 및 다양한 기기 대응 반응형 뷰포트 설정 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 웹페이지 타이틀 -->
+    <title>실시간 공기 신호등</title>
+    <!-- Pretendard 웹폰트 CDN 링크 -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+    <!-- 외부 스타일시트 연결 -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 전체 페이지 컨테이너 -->
+    <div class="container">
+        <!-- 상단 헤더 및 지역 선택 영역 -->
+        <header class="header">
+            <!-- 메인 타이틀 -->
+            <h1>공기 신호등</h1>
+            <!-- 시도 선택 컨트롤 -->
+            <div class="control-box">
+                <label for="sidoSelect">지역 선택</label>
+                <!-- 18개 시도 선택 드롭다운 -->
+                <select id="sidoSelect">
+                    <option value="전국">전국</option>
+                    <option value="서울" selected>서울</option>
+                    <option value="부산">부산</option>
+                    <option value="대구">대구</option>
+                    <option value="인천">인천</option>
+                    <option value="광주">광주</option>
+                    <option value="대전">대전</option>
+                    <option value="울산">울산</option>
+                    <option value="세종">세종</option>
+                    <option value="경기">경기</option>
+                    <option value="강원">강원</option>
+                    <option value="충북">충북</option>
+                    <option value="충남">충남</option>
+                    <option value="전북">전북</option>
+                    <option value="전남">전남</option>
+                    <option value="경북">경북</option>
+                    <option value="경남">경남</option>
+                    <option value="제주">제주</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- 대형 공기 신호등 대시보드 섹션 -->
+        <section class="traffic-light-card" id="trafficLightCard">
+            <!-- 기준 시각 표시 -->
+            <div class="standard-time" id="standardTime">- 기준</div>
+
+            <!-- 신호등 메인 정보 (이모지 + 상태 텍스트 + 평균 수치) -->
+            <div class="traffic-light-main">
+                <!-- 상태 이모지 (🔵🟢🟠🔴) -->
+                <span class="status-emoji" id="statusEmoji">⏳</span>
+                <!-- 상태 텍스트 (좋음/보통/나쁨/매우나쁨) -->
+                <span class="status-text" id="statusText">불러오는 중...</span>
+                <!-- 평균 수치 영역 -->
+                <div class="status-value-box">
+                    <span class="status-num" id="avgValue">-</span>
+                    <span class="status-unit">㎍/㎥</span>
+                </div>
+            </div>
+
+            <!-- 하단 행동 가이드 한 줄 안내 문구 -->
+            <div class="guide-banner" id="guideBanner">
+                데이터를 불러오고 있습니다...
+            </div>
+        </section>
+
+        <!-- 측정소별 카드 목록 컨테이너 -->
+        <section class="card-grid" id="cardGrid">
+            <!-- 자바스크립트로 측정소 카드들이 동적으로 생성됩니다 -->
+        </section>
+    </div>
+
+    <!-- 비즈니스 로직 스크립트 연결 -->
+    <script src="script.js"></script>
+</body>
+</html>
